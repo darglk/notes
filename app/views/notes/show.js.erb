@@ -1,0 +1,6 @@
+$('#dialog h3').html("<i class=' glyphicon glyphicon-pencil'></i> Details");
+
+// Render the edit form
+$('.modal-body').html('<%= @note.title %>');
+// Show the dynamic dialog
+$('#dialog').modal("show");
