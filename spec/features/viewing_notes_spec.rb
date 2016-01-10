@@ -1,15 +1,16 @@
 require "rails_helper"
 
 RSpec.feature "Users can view notes" do
-  scenario "User clicks on show button" do
-    pending
+  let!(:user) { FactoryGirl.create(:user)}
+  let!(:note) { FactoryGirl.create(:note, title: "title", user: user)}
+
+  before do
+    login_as(user)
     visit "/"
-    click_link "New Note"
-    fill_in "Title", with: "title"
-    fill_in "Description", with: "some long long long"
-    click_button "Create Note"
-    visit "/"
-    click_link('show_note1')
-    expect(page).to have_content "title"
+  end
+
+  scenario "User clicks on show button", js: true do
+    click_link "show_note#{note.id}"
+    expect(page).to have_content note.title
   end
 end

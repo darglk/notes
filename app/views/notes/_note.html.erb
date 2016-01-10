@@ -1,0 +1,7 @@
+<tr id="note<%= note.id %>">
+  <td><%= note.title %></td>
+  <td><%= note.description %></td>
+  <td><%= link_to 'Show', note, remote: true, id: "show_note#{note.id}", :class => 'btn btn-sm btn-info' %></td>
+  <td><%= link_to 'Edit', edit_note_path(note), remote: true, id: "edit_note#{note.id}", :class => 'btn btn-sm btn-warning' %></td>
+  <td><%= link_to 'Delete', note, remote: true, method: :delete, id: "destroy_note#{note.id}", data: { confirm: 'Are you sure?' }, :class => 'btn btn-sm btn-danger' %></td>
+</tr>

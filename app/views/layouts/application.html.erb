@@ -6,6 +6,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -29,6 +30,9 @@
           </li>
       <% else %>
           <li>
+            <%= link_to "My account", edit_user_registration_path %>
+          </li>
+          <li>
             <%= link_to destroy_user_session_path, method: :delete do %>
                 <span class="glyphicon glyphicon-log-in"></span>  Logout
             <% end %>
@@ -40,10 +44,12 @@
 <div class="row">
   <div class="col-sm-2"></div>
   <div class="col-sm-8">
+    <%= render "layouts/flash_msg" %>
     <%= yield %>
     <%= render "layouts/dialog" %>
   </div>
     <div class="col-sm-2"></div>
 </div>
+
 </body>
 </html>

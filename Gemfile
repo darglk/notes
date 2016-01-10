@@ -28,6 +28,8 @@ gem 'bootstrap-sass'
 gem 'simple_form'
 
 gem 'devise'
+
+gem 'will_paginate-bootstrap'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -41,6 +43,7 @@ group :test do
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'selenium-webdriver'
+  gem 'database_cleaner'
 end
 
 group :development, :test do

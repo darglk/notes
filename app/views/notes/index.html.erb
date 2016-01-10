@@ -1,6 +1,6 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Listing Notes</h1>
+
+<h1>My Notes</h1>
 
 <table class="table">
   <thead>
@@ -12,20 +12,16 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody id="notes">
     <% @notes.each do |note| %>
-      <tr>
-        <td><%= note.title %></td>
-        <td><%= note.description %></td>
-        <td><%= note.user.email %></td>
-        <td><%= link_to 'Show', note, id: "show_note#{note.id}", class: 'btn btn-sm btn-info', remote: true %></td>
-        <td><%= link_to 'Edit', edit_note_path(note),  id: "edit_note#{note.id}", class: 'btn btn-sm btn-warning' %></td>
-        <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' }, id: "destroy_note#{note.id}", class: 'btn btn-sm btn-danger'  %></td>
-      </tr>
+      <%= render note %>
     <% end %>
   </tbody>
 </table>
-
 <br>
+<div style="text-align: center">
+  <%= will_paginate @notes, renderer: BootstrapPagination::Rails, :is_active => true %>
+</div>
 
-<%= link_to 'New Note', new_note_path, class: 'btn btn-success' %>
+
+<%= link_to 'New Note', new_note_path, class: 'btn btn-success', remote: true %>
