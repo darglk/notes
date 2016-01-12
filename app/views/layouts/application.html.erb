@@ -32,6 +32,11 @@
           <li>
             <%= link_to "My account", edit_user_registration_path %>
           </li>
+          <% if current_user.is_admin?%>
+            <li>
+              <%= link_to "Users", admin_users_path %>
+            </li>
+          <% end %>
           <li>
             <%= link_to destroy_user_session_path, method: :delete do %>
                 <span class="glyphicon glyphicon-log-in"></span>  Logout

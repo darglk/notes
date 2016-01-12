@@ -1,0 +1,10 @@
+<tr id="user<%= user.id %>">
+  <td><%= user.email %></td>
+  <td><%= user.created_at%></td>
+  <td><%= user.is_admin? ? "yes" : "no"%></td>
+  <td><%= link_to 'Show', admin_user_path(user), remote: true, id: "show_user#{user.id}", :class => 'btn btn-sm btn-info' %></td>
+  <td><%= link_to 'Edit', edit_admin_user_path(user), remote: true, id: "edit_user#{user.id}", :class => 'btn btn-sm btn-warning' %></td>
+  <% if user != current_user%>
+    <td><%= link_to 'Delete', admin_user_path(user), remote: true, method: :delete, id: "destroy_user#{user.id}", data: { confirm: 'Are you sure?' }, :class => 'btn btn-sm btn-danger' %></td>
+  <% end %>
+</tr>

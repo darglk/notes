@@ -1,0 +1,5 @@
+<%= simple_form_for(@user, url: admin_user_url, remote: true) do |f| %>
+    <%= f.input :email %>
+    <%= f.input :is_admin, disabled: current_user.id == @user.id ? true : false %>
+    <%= f.button :submit, class: 'btn-primary' %>
+<% end %>

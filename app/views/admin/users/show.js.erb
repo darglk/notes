@@ -1,0 +1,6 @@
+$('#dialog h3').html("<i class=' glyphicon glyphicon-pencil'></i><%= @user.email%> details");
+
+// Render the edit form
+$('.modal-body').html('<%= @user.email %>');
+// Show the dynamic dialog
+$('#dialog').modal("show");
