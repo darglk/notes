@@ -12,8 +12,14 @@
 //
 //= require jquery
 //= require bootstrap-sprockets
+//= require nested_form_fields
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$('.carousel').carousel({
+    interval: false
+});
+
 
 

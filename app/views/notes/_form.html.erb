@@ -1,5 +1,11 @@
-<%= simple_form_for(@note, remote: true) do |f| %>
+<%= simple_form_for(@note, remote: true, multipart: true, authenticity_token: true) do |f| %>
     <%= f.input :title %>
     <%= f.input :description %>
+    <%= f.nested_fields_for :attachments do |ff| %>
+        <%= ff.remove_nested_fields_link %>
+        <%= ff.input :file, as: :file, label: "File #" %>
+        <%= ff.input :file_cache, as: :hidden %>
+    <% end %>
+    <%= f.add_nested_fields_link :attachments %>
     <%= f.button :submit, class: 'btn-primary' %>
 <% end %>

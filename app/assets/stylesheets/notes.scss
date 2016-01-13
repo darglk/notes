@@ -1,3 +1,39 @@
 // Place all the styles related to the notes controller here.
 // They will automatically be included in application.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+//colors
+$white: #ffffff;
+$color_boston_blue_approx: #428bca;
+
+.carousel {
+  width: 100%;
+}
+.article-slide .carousel-indicators {
+  bottom: 0;
+  left: 0;
+  margin-left: 5px;
+  width: 100%;
+  li {
+    border: medium none;
+    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+    border-radius: 0;
+    float: left;
+    height: 54px;
+    margin-bottom: 5px;
+    margin-left: 0;
+    margin-right: 5px !important;
+    margin-top: 0;
+    width: 100px;
+  }
+  img {
+    border: 2px solid $white;
+    float: left;
+    height: 54px;
+    left: 0;
+    width: 100px;
+  }
+  .active img {
+    border: 2px solid $color_boston_blue_approx;
+    opacity: 0.7;
+  }
+}

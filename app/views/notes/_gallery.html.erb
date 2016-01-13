@@ -1,0 +1,28 @@
+<div id="gallery">
+
+
+        <div class="carousel slide article-slide" id="article-photo-carousel">
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner cont-slider">
+
+            <% @note.attachments.each_with_index do |attachment, index| %>
+                <div class="item<%= " active" if index == 0 %>">
+                  <%= image_tag attachment.file, class: "img-responsive" %>
+                </div>
+            <% end %>
+
+            </div>
+          <ol class="carousel-indicators">
+            <% @note.attachments.each_with_index do | attachment, index| %>
+                <li data-slide-to="<%= index%>" data-target="#article-photo-carousel">
+                    <%= image_tag attachment.file %>
+                </li>
+            <% end %>
+
+          </ol>
+
+        </div>
+
+</div>
+

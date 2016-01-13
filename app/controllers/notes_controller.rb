@@ -16,6 +16,7 @@ class NotesController < ApplicationController
   # GET /notes/new
   def new
     @note = Note.new
+    @note.attachments.build
   end
 
   # GET /notes/1/edit
@@ -30,7 +31,7 @@ class NotesController < ApplicationController
     respond_to do |format|
       if @note.save
         format.js
-        #format.html { redirect_to @note, notice: 'Note has been created.' }
+        format.html { redirect_to root_path, notice: 'Note has been created.' }
       else
         #format.html { render :new }
         format.js { render  :new }
@@ -68,6 +69,6 @@ class NotesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def note_params
-      params.require(:note).permit(:title, :description)
+      params.require(:note).permit(:title, :description, attachments_attributes: [:file, :file_cache])
     end
 end
