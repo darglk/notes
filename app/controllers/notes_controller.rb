@@ -33,7 +33,7 @@ class NotesController < ApplicationController
         format.js
         format.html { redirect_to root_path, notice: 'Note has been created.' }
       else
-        #format.html { render :new }
+        format.html { redirect_to root_path, alert: 'Something went wrong.' }
         format.js { render  :new }
       end
     end
@@ -44,8 +44,10 @@ class NotesController < ApplicationController
   def update
     respond_to do |format|
       if @note.update(note_params)
+        format.html { redirect_to root_path, notice: 'Note has been updated.' }
         format.js
       else
+        format.html { redirect_to root_path, alert: 'Something went wrong.' }
         format.js { render :edit }
       end
     end
